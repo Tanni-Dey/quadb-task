@@ -3,7 +3,7 @@ import { AppContext } from "../../App";
 import ReactJsxParser from "react-jsx-parser";
 
 const SingleSummary = () => {
-  const [s, setS] = useContext(AppContext);
+  const [summaryShow, setSummaryShow] = useContext(AppContext);
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -18,48 +18,51 @@ const SingleSummary = () => {
 
   return (
     <div className="container">
-      <ReactJsxParser jsx={s?.summary} />
-      {/* <button>Book This Movie</button> */}
-      {/* <p >{ReactHtmlParser(s?.summary)}</p> */}
-
-      {/* <!-- Button trigger modal --> */}
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Book This Movie
-      </button>
+      <div className="row justify-content-center">
+        <div className="col-md-5 m-5 p-5 border border-warning rounded">
+          <h4 className="text-warning mb-3">
+            Summary of {summaryShow?.name} Movie
+          </h4>
+          <ReactJsxParser jsx={summaryShow?.summary} />
+          <button
+            type="button"
+            className="btn btn-warning"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Book This Movie
+          </button>
+        </div>
+      </div>
 
       {/* <!-- Modal --> */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Movie Booking
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form action="" onSubmit={handleBooking}>
                 <input
                   className="form-control mb-3"
                   type="text"
                   name="movieName"
-                  value={s?.name}
+                  value={summaryShow?.name}
                   required
                   placeholder="Enter Movie Name"
                 />
@@ -77,35 +80,14 @@ const SingleSummary = () => {
                   name="phone"
                   placeholder="Enter Your Phone number"
                 />
-                {/* <input type="submit" value="sdgfgh" /> */}
                 <input
                   type="submit"
-                  class="btn btn-primary"
+                  className="btn btn-warning"
                   data-bs-dismiss="modal"
                   value="Book This Movie"
-                  // onClick={handleBooking}
                 />
-                {/* Save changes
-                </button> */}
               </form>
             </div>
-            {/* <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-                // onClick={handleBooking}
-              >
-                Save changes
-              </button>
-            </div> */}
           </div>
         </div>
       </div>

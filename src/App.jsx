@@ -6,7 +6,7 @@ import SingleSummary from "./components/SingleSummary/SingleSummary";
 
 export const AppContext = createContext();
 function App() {
-  const [s, setS] = useState({});
+  const [summaryShow, setSummaryShow] = useState({});
   const router = createBrowserRouter([
     {
       path: "/",
@@ -19,7 +19,7 @@ function App() {
   ]);
   return (
     <>
-      <AppContext.Provider value={[s, setS]}>
+      <AppContext.Provider value={[summaryShow, setSummaryShow]}>
         <RouterProvider router={router} />
       </AppContext.Provider>
     </>
