@@ -26,7 +26,7 @@ const Allshows = () => {
       <h2 className="text-warning m-5">All Shows</h2>
       <div className="row">
         {shows.map((show) => (
-          <div className="col-md-3 mb-5" key={show.show.id}>
+          <div className="col-lg-3 col-md-6 mb-5" key={show.show.id}>
             <div className="p-3 border-warning border rounded">
               <img
                 className="img-fluid rounded mb-3"
