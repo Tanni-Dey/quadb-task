@@ -12,7 +12,6 @@ const SingleSummary = () => {
       userName: e.target.user.value,
       userPhone: e.target.phone.value,
     };
-    console.log(userDetails);
     localStorage.setItem("details", JSON.stringify(userDetails));
   };
 
